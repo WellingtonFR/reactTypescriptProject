@@ -1,11 +1,12 @@
 :root {
   --primary: #9bc995ff;
   --secondary: #98b9abff;
-  --alternative-1: #5171a5ff;
+  --alternative-1: rgb(49, 138, 255);
   --alternative-2: #3f3047ff;
-  --alternative--3: #eef36aff;
+  --alternative-3: #eef36aff;
   --text-white: #ffffff;
   --text-black: #1a1a1a;
+  --background:#353535;
 }
 
 /*Reset*/
@@ -31,4 +32,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: var(--background);
+  background-image: url("./space_pattern.jpg");
+  background-repeat: repeat;
 }
