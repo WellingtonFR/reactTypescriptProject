@@ -1,10 +1,14 @@
 import cardStyle from "./card.module.css";
 import { Card } from "./components/Card";
 
+c;
+
 export default function Page() {
   return (
-    <Card headerTitle="Pergunta 1 de 1">
-      <p>children</p>
+    <Card
+      headerTitle={`Questão número ${questionNumber} de ${questions.length}`}
+    >
+      <p></p>
     </Card>
   );
 }
