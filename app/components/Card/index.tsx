@@ -1,10 +1,5 @@
 import cardStyle from "./card.module.css";
 
-interface CardProps {
-  headerTitle: string;
-  children: React.ReactNode;
-}
-
 const questions = [
   {
     question: "A lua gira em torno do sol ?",
@@ -12,7 +7,7 @@ const questions = [
   },
 ];
 
-export function Card(props: CardProps) {
+export function Card() {
   const currentQuestion = 0;
   const questionNumber = currentQuestion + 1;
   const question = questions[currentQuestion];
@@ -37,8 +32,6 @@ export function Card(props: CardProps) {
             <label htmlFor={`alternative_${index}`}>{alternative}</label>
           </div>
         ))}
-
-        <div>{props.children}</div>
       </form>
     </div>
   );
