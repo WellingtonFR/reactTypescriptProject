@@ -35,15 +35,26 @@
   align-items: center;
 }
 
-.card_form___tgfs input,
+.card_form___tgfs input {
+  /* display: none; */
+}
+
 .card_form___tgfs label {
   display: inline-block;
-  margin: 10px;
+  margin: 5px;
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  color: #ffffff;
 }
 
 .card_form___tgfs .card_answer__bogmy {
   width: 100%;
   text-align: center;
+}
+
+.card_alternative-label__o3lgn ~ .card_alternative__Rk1CP:checked {
+  background-color: #0a2a55;
 }
 
 .card_button__6z_tC {

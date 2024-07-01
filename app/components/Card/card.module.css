@@ -32,15 +32,26 @@
   align-items: center;
 }
 
-.form input,
+.form input {
+  /* display: none; */
+}
+
 .form label {
   display: inline-block;
-  margin: 10px;
+  margin: 5px;
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  color: #ffffff;
 }
 
 .form .answer {
   width: 100%;
   text-align: center;
+}
+
+.alternative-label ~ .alternative:checked {
+  background-color: #0a2a55;
 }
 
 .button {

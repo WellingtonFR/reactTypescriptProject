@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState } from "react";
 import cardStyle from "./card.module.css";
 
 interface Question {
@@ -21,24 +22,32 @@ const questions: Question[] = [
   },
 ];
 
-function submitForm(event: React.FormEvent<HTMLFormElement>): void {
-  event.preventDefault();
-
-  const questionInfo = event.target as HTMLFormElement;
-  const formData = new FormData(questionInfo);
-  const { alternative } = Object.fromEntries(formData.entries());
-
-  const currentQuestion = 0;
-  const question = questions[currentQuestion];
-
-  const isCorrectAnswer = alternative === question.answer;
-  console.log(isCorrectAnswer);
-}
-
 export function Card() {
-  const currentQuestion = 0;
+  const [currentQuestion, setCurrentQuestion] = useState(0);
   const questionNumber = currentQuestion + 1;
   const question = questions[currentQuestion];
+
+  function submitForm(event: React.FormEvent<HTMLFormElement>): void {
+    event.preventDefault();
+
+    const questionInfo = event.target as HTMLFormElement;
+    const formData = new FormData(questionInfo);
+    const { alternative } = Object.fromEntries(formData.entries());
+
+    const question = questions[currentQuestion];
+
+    const isCorrectAnswer = alternative === question.answer;
+    console.log(isCorrectAnswer);
+
+    const isLastQuestion = questionNumber === questions.length;
+
+    if (isLastQuestion) {
+      alert("Desafio concluído, aguardo o resultado");
+      return;
+    } else {
+      setCurrentQuestion(currentQuestion + 1);
+    }
+  }
 
   return (
     <div className={cardStyle.card}>
@@ -49,9 +58,10 @@ export function Card() {
 
         {question.alternatives.map((alternative, index) => (
           <div className={cardStyle.answer} key={alternative + index}>
-            <input type="radio" value={index} id={`alternative_${index}`} name="alternative" />
-
-            <label htmlFor={`alternative_${index}`}>{alternative}</label>
+            <input type="radio" value={index} id={`alternative_${index}`} name="alternative" className="alternative" />
+            <label htmlFor={`alternative_${index}`} className="alternative-label">
+              {alternative}
+            </label>
           </div>
         ))}
 
