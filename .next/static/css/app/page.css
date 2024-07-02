@@ -12,7 +12,7 @@
 }
 
 .card_header__trR9l {
-  font-size: 22px;
+  font-size: 16px;
   font-weight: bold;
   color: var(--text-white);
   height: 50px;
@@ -24,7 +24,8 @@
 
 .card_question__hOTV8 {
   padding: 10px;
-  text-align: center;
+  text-align: left;
+  text-wrap: nowrap;
 }
 
 .card_form___tgfs {
@@ -36,7 +37,7 @@
 }
 
 .card_form___tgfs input {
-  /* display: none; */
+  display: none;
 }
 
 .card_form___tgfs label {
@@ -46,6 +47,11 @@
   padding: 10px;
   border-radius: 5px;
   color: #ffffff;
+  background-color: #a7a7a7;
+}
+
+.card_form___tgfs label:hover {
+  background-color: #b9b9b9;
 }
 
 .card_form___tgfs .card_answer__bogmy {
@@ -53,8 +59,8 @@
   text-align: center;
 }
 
-.card_alternative-label__o3lgn ~ .card_alternative__Rk1CP:checked {
-  background-color: #0a2a55;
+.card_form___tgfs input[type="radio"]:checked ~ label {
+  background-color: #62c562;
 }
 
 .card_button__6z_tC {
@@ -67,6 +73,7 @@
   color: #ffffff;
   margin-top: 20px;
   transition: 0.5s;
+  font-size: 14px;
 }
 
 .card_button__6z_tC:hover {

@@ -27,6 +27,11 @@ export function Card() {
   const questionNumber = currentQuestion + 1;
   const question = questions[currentQuestion];
 
+  const radioButtons = document.querySelectorAll('.alternative-radio');
+    radioButtons.forEach((radioButton) => {
+      (radioButton as HTMLInputElement).checked = false;
+    });
+
   function submitForm(event: React.FormEvent<HTMLFormElement>): void {
     event.preventDefault();
 
@@ -37,8 +42,6 @@ export function Card() {
     const question = questions[currentQuestion];
 
     const isCorrectAnswer = alternative === question.answer;
-    console.log(isCorrectAnswer);
-
     const isLastQuestion = questionNumber === questions.length;
 
     if (isLastQuestion) {
@@ -58,7 +61,7 @@ export function Card() {
 
         {question.alternatives.map((alternative, index) => (
           <div className={cardStyle.answer} key={alternative + index}>
-            <input type="radio" value={index} id={`alternative_${index}`} name="alternative" className="alternative" />
+            <input type="radio" value={index} id={`alternative_${index}`} name="alternative" className="alternative-radio" />
             <label htmlFor={`alternative_${index}`} className="alternative-label">
               {alternative}
             </label>
